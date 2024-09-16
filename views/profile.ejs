@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+  <body>
+    <form hidden action="/uploadimage" method="post" enctype="multipart/form-data">
+        <input type="file" name="profile-image" id="profile-image" name="profile-image"/>
+    </form>
+    <div class="w-100 row justify-content-center">
+        <div class="w-auto text-center">
+            <div class="rounded-circle profile-img overflow-hidden p-1 border border-primary mx-auto">
+                <img src="/images/uploads/<%=user.profileImage%>" alt="profile-image" width="100%" height="100%" class="rounded-circle"/>
+            </div>
+            <button class="btn btn-light profile-edit rounded-circle p-0" id="edit-img"><img src="https://tse4.mm.bing.net/th?id=OIP.dm_topY6TDSfPfROkP36pAHaHa&pid=Api&P=0&h=180" width="100%" height="100%"/></button>
+            <h2 class="fs-3 text-capitalize">Devesh Mishra</h2>
+            <p class="fs-6 fw-lighter"><%=user.username%></p>
+            <span class="fs-5 fw-bold">91 followers</span>
+            <span class="fs-5 fw-bold">8 following</span>
+            <a class="btn btn-danger rounded-pill text-capitalize d-block mt-3 mb-3" href="/post">add new post</a>
+        </div>
+    </div>
+    <div class="w-100 row p-5 justify-content-center g-1">
+        <% posts.posts.map((val,index)=>{%>
+            <div class="w-300 p-2">
+        <div class="card bg-dark text-white h-150">
+            <img src="/images/uploads/<%= val.image%>" class="card-img" alt="..." width="100%" height="100%">
+            <div class="card-img-overlay">
+                <h5 class="card-title"><%=posts.posts.title%></h5>
+                <p class="card-text"><%=posts.posts.description%></p>
+            </div>
+            
+        </div>
+            <p class=" fs-6"> <%=user.username%></p>
+        </div>
+        <%})%>
+    </div>
+    <a href="/logout" class="btn btn-danger w-100 ">log out</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+  <script>
+    document.querySelector("#edit-img").addEventListener("click",()=>{
+        document.querySelector("#profile-image").click();
+    })
+    document.querySelector("#profile-image").addEventListener("change",()=>{
+        document.querySelector("form").submit();
+    })
+  </script>
+</html>

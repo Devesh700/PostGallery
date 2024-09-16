@@ -1,0 +1,62 @@
+body {
+  /* padding: 50px; */
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  color: #00B7FF;
+}
+  input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+
+
+/* class selectors sorted alphabetically */
+.h-150{
+  height: 150px;
+}
+.min-vh-50{
+  min-height: 70vh;
+}
+.min-h-100dvh{
+  min-height: 100dvh;
+}
+.p-50{
+  padding:10% 30%;
+}
+.profile-edit{
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  position: relative;
+  top: -10%;
+  right: -10%;
+}
+.profile-img{
+width: 100px;
+height: 100px;
+}
+.w-300{
+  width: 300px !important;
+}
+
+
+/* media */
+@media screen and (max-width:600px) {
+  .p-50{
+    padding: 1% !important;
+  }
+}
